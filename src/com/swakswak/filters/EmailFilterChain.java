@@ -1,4 +1,4 @@
-package com.swakswak.email.filters;
+package com.swakswak.filters;
 
 import com.swakswak.email.Email;
 
@@ -17,4 +17,6 @@ public abstract class EmailFilterChain {
             next.filter(email);
         }
     }
+
+    protected abstract void add(Email email);
 }

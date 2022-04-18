@@ -1,5 +1,6 @@
 package com.swakswak.email;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -10,12 +11,14 @@ public class Email {
     private final String title;
     private final List<String> carbonCopy;
     private final String content;
+    private final LocalDateTime receivedAt;
 
     Email(String sender, String title, List<String> carbonCopy, String content) {
         this.sender = sender;
         this.title = title;
         this.carbonCopy = carbonCopy;
         this.content = content;
+        this.receivedAt = LocalDateTime.now();
     }
 
     public String getSender() {
