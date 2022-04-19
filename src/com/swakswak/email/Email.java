@@ -8,13 +8,15 @@ import java.util.List;
  **/
 public class Email {
     private final String sender;
+    private final String receiver;
     private final String title;
     private final List<String> carbonCopy;
     private final String content;
     private final LocalDateTime receivedAt;
 
-    Email(String sender, String title, List<String> carbonCopy, String content) {
+    Email(String sender, String receiver, String title, List<String> carbonCopy, String content) {
         this.sender = sender;
+        this.receiver = receiver;
         this.title = title;
         this.carbonCopy = carbonCopy;
         this.content = content;
@@ -37,13 +39,23 @@ public class Email {
         return content;
     }
 
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public LocalDateTime getReceivedAt() {
+        return receivedAt;
+    }
+
     @Override
     public String toString() {
         return "Email{" +
                 "sender='" + sender + '\'' +
+                ", receiver='" + receiver + '\'' +
                 ", title='" + title + '\'' +
                 ", carbonCopy=" + carbonCopy +
                 ", content='" + content + '\'' +
+                ", receivedAt=" + receivedAt +
                 '}';
     }
 }

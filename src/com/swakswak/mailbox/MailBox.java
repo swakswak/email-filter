@@ -7,10 +7,25 @@ import java.util.List;
 /**
  * @author hyoseok choi (hschoi0702@gmail.com)
  **/
-public interface MailBox {
-    List<Email> getContents();
+public class MailBox {
+    protected final List<Email> contents;
 
-    void add(Email email);
+    public MailBox(List<Email> contents) {
+        this.contents = contents;
+    }
 
-    String toString();
+    public List<Email> getContents() {
+        return contents;
+    }
+
+    public void add(Email email) {
+        contents.add(email);
+    }
+
+    @Override
+    public String toString() {
+        return "MailBox{" +
+                "contents=" + contents +
+                '}';
+    }
 }
