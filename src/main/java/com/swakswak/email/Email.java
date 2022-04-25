@@ -7,40 +7,40 @@ import java.util.List;
  * @author hyoseok choi (hschoi0702@gmail.com)
  **/
 public class Email {
-    private final String sender;
-    private final String receiver;
+    private final EmailAddress sender;
+    private final EmailAddress receiver;
     private final String title;
-    private final List<String> carbonCopy;
     private final String content;
+    private final List<String> carbonCopy;
     private final LocalDateTime receivedAt;
 
-    Email(String sender, String receiver, String title, List<String> carbonCopy, String content) {
+    public Email(EmailAddress sender, EmailAddress receiver, String title, String content, List<String> carbonCopy, LocalDateTime receivedAt) {
         this.sender = sender;
         this.receiver = receiver;
         this.title = title;
-        this.carbonCopy = carbonCopy;
         this.content = content;
-        this.receivedAt = LocalDateTime.now();
+        this.carbonCopy = carbonCopy;
+        this.receivedAt = receivedAt;
     }
 
-    public String getSender() {
+    public EmailAddress getSender() {
         return sender;
+    }
+
+    public EmailAddress getReceiver() {
+        return receiver;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public List<String> getCarbonCopy() {
-        return carbonCopy;
-    }
-
     public String getContent() {
         return content;
     }
 
-    public String getReceiver() {
-        return receiver;
+    public List<String> getCarbonCopy() {
+        return carbonCopy;
     }
 
     public LocalDateTime getReceivedAt() {
@@ -50,11 +50,11 @@ public class Email {
     @Override
     public String toString() {
         return "Email{" +
-                "sender='" + sender + '\'' +
-                ", receiver='" + receiver + '\'' +
+                "sender=" + sender +
+                ", receiver=" + receiver +
                 ", title='" + title + '\'' +
-                ", carbonCopy=" + carbonCopy +
                 ", content='" + content + '\'' +
+                ", carbonCopy=" + carbonCopy +
                 ", receivedAt=" + receivedAt +
                 '}';
     }
