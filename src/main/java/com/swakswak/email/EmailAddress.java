@@ -1,7 +1,5 @@
 package com.swakswak.email;
 
-import java.util.Objects;
-
 /**
  * @author hyoseok choi (hschoi0702@gmail.com)
  **/
