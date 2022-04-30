@@ -8,7 +8,7 @@ import com.swakswak.mailbox.MailBoxHolder;
  **/
 public abstract class EmailFilterChain {
     private EmailFilterChain next;
-    protected MailBoxHolder mailBoxHolder;
+    protected final MailBoxHolder mailBoxHolder;
 
     protected EmailFilterChain() {
         this.mailBoxHolder = MailBoxHolder.getInstance();
@@ -18,11 +18,13 @@ public abstract class EmailFilterChain {
         this.next = next;
     }
 
-    public void filter(Email email) {
+    public void process(String owner, Email email) {
+        this.saveAfterFilter(owner, email);
+
         if (next != null) {
-            next.filter(email);
+            next.process(owner, email);
         }
     }
 
-    protected abstract void add(Email email);
+    protected abstract void saveAfterFilter(String owner, Email email);
 }
